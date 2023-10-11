@@ -18,30 +18,54 @@ function create_directories() {
 ################################################################################
 create_directories
 
-echo "############################################################################"
-echo "TPC-DS Script for Pivotal Greenplum Database."
-echo "############################################################################"
-echo ""
-echo "############################################################################"
-echo "GEN_DATA_SCALE: ${GEN_DATA_SCALE}"
-echo "EXPLAIN_ANALYZE: ${EXPLAIN_ANALYZE}"
-echo "RANDOM_DISTRIBUTION: ${RANDOM_DISTRIBUTION}"
-echo "MULTI_USER_COUNT: ${MULTI_USER_COUNT}"
-echo "RUN_COMPILE_TPCDS: ${RUN_COMPILE_TPCDS}"
-echo "RUN_GEN_DATA: ${RUN_GEN_DATA}"
-echo "GEN_NEW_DATA: ${GEN_NEW_DATA}"
-echo "RUN_INIT: ${RUN_INIT}"
-echo "RUN_DDL: ${RUN_DDL}"
-echo "RUN_LOAD: ${RUN_LOAD}"
-echo "RUN_SQL: ${RUN_SQL}"
-echo "SINGLE_USER_ITERATIONS: ${SINGLE_USER_ITERATIONS}"
-echo "RUN_SINGLE_USER_REPORTS: ${RUN_SINGLE_USER_REPORTS}"
-echo "RUN_MULTI_USER: ${RUN_MULTI_USER}"
-echo "RUN_MULTI_USER_REPORTS: ${RUN_MULTI_USER_REPORTS}"
-echo "BENCH_ROLE: ${BENCH_ROLE}"
-echo "GPFDIST_LOCATION: ${GPFDIST_LOCATION}"
-echo "############################################################################"
-echo ""
+cat << EOF
+############################################################################
+TPC-DS for Greenplum Database.
+----------------------------------------------------------------------------
+
+-- environment options --
+ADMIN_USER: ${ADMIN_USER}
+BENCH_ROLE: ${BENCH_ROLE}
+
+-- to connect directly to GP --
+PGPORT: ${PGPORT}
+
+-- benchmark options --
+GEN_DATA_SCALE: ${GEN_DATA_SCALE}
+MULTI_USER_COUNT: ${MULTI_USER_COUNT}
+RNGSEED: ${RNGSEED}
+HEAP_ONLY: ${HEAP_ONLY}
+
+-- step options --
+RUN_COMPILE_TPCDS: ${RUN_COMPILE_TPCDS}
+RUN_GEN_DATA: ${RUN_GEN_DATA}
+GEN_NEW_DATA: ${GEN_NEW_DATA}
+RUN_INIT: ${RUN_INIT}
+RUN_DDL: ${RUN_DDL}
+RUN_LOAD: ${RUN_LOAD}
+RUN_SQL: ${RUN_SQL}
+RUN_SINGLE_USER_REPORTS: ${RUN_SINGLE_USER_REPORTS}
+RUN_QGEN: ${RUN_QGEN}
+RUN_MULTI_USER: ${RUN_MULTI_USER}
+RUN_MULTI_USER_REPORTS: ${RUN_MULTI_USER_REPORTS}
+RUN_SCORE: ${RUN_SCORE}
+
+-- misc options --
+SINGLE_USER_ITERATIONS: ${SINGLE_USER_ITERATIONS}
+EXPLAIN_ANALYZE: ${EXPLAIN_ANALYZE}
+RANDOM_DISTRIBUTION: ${RANDOM_DISTRIBUTION}
+
+-- gpfdist location where gpfdist will run p (primary) or m (mirror) --
+GPFDIST_LOCATION: ${GPFDIST_LOCATION}
+
+-- general info --
+OSVERSION: ${OSVERSION}
+MASTER_HOST: ${MASTER_HOST}
+LD_PRELOAD: ${LD_PRELOAD}
+
+############################################################################
+
+EOF
 
 # We assume that the flag variable names are consistent with the corresponding directory names.
 # For example, `00_compile_tpcds directory` name will be used to get `true` or `false` value from `RUN_COMPILE_TPCDS` in `tpcds_variables.sh`.
