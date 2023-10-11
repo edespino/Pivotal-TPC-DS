@@ -18,8 +18,6 @@ export TPC_DS_DIR
 check_variables
 # Make sure this is being run as gpadmin
 check_admin_user
-# Output admin user and multi-user count to standard out
-print_header
 
 # run the benchmark
 ./rollout.sh

@@ -77,14 +77,6 @@ function check_admin_user() {
   fi
 }
 
-function print_header() {
-  echo "############################################################################"
-  echo "ADMIN_USER: ${ADMIN_USER}"
-  echo "MULTI_USER_COUNT: ${MULTI_USER_COUNT}"
-  echo "############################################################################"
-  echo ""
-}
-
 # we need to declare this outside, otherwise, the declare will wipe out the
 # value within a function
 declare startup_file
