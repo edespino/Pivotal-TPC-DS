@@ -22,17 +22,6 @@ function check_variable() {
 }
 
 function check_variables() {
-  ### Make sure variables file is available
-  echo "############################################################################"
-  echo "Sourcing ${VARS_FILE}"
-  echo "############################################################################"
-  echo ""
-  # shellcheck source=tpcds_variables.sh
-  if ! source "./${VARS_FILE}" 2> /dev/null; then
-    echo "./${VARS_FILE} does not exist. Please ensure that this file exists before running TPC-DS. Exiting."
-    exit 1
-  fi
-
   check_variable "ADMIN_USER"
   check_variable "EXPLAIN_ANALYZE"
   check_variable "RANDOM_DISTRIBUTION"

@@ -18,30 +18,6 @@ function create_directories() {
 ################################################################################
 create_directories
 
-echo "############################################################################"
-echo "TPC-DS Script for Pivotal Greenplum Database."
-echo "############################################################################"
-echo ""
-echo "############################################################################"
-echo "GEN_DATA_SCALE: ${GEN_DATA_SCALE}"
-echo "EXPLAIN_ANALYZE: ${EXPLAIN_ANALYZE}"
-echo "RANDOM_DISTRIBUTION: ${RANDOM_DISTRIBUTION}"
-echo "MULTI_USER_COUNT: ${MULTI_USER_COUNT}"
-echo "RUN_COMPILE_TPCDS: ${RUN_COMPILE_TPCDS}"
-echo "RUN_GEN_DATA: ${RUN_GEN_DATA}"
-echo "GEN_NEW_DATA: ${GEN_NEW_DATA}"
-echo "RUN_INIT: ${RUN_INIT}"
-echo "RUN_DDL: ${RUN_DDL}"
-echo "RUN_LOAD: ${RUN_LOAD}"
-echo "RUN_SQL: ${RUN_SQL}"
-echo "SINGLE_USER_ITERATIONS: ${SINGLE_USER_ITERATIONS}"
-echo "RUN_SINGLE_USER_REPORTS: ${RUN_SINGLE_USER_REPORTS}"
-echo "RUN_MULTI_USER: ${RUN_MULTI_USER}"
-echo "RUN_MULTI_USER_REPORTS: ${RUN_MULTI_USER_REPORTS}"
-echo "BENCH_ROLE: ${BENCH_ROLE}"
-echo "GPFDIST_LOCATION: ${GPFDIST_LOCATION}"
-echo "############################################################################"
-
 # We assume that the flag variable names are consistent with the corresponding directory names.
 # For example, `00_compile_tpcds directory` name will be used to get `true` or `false` value from `RUN_COMPILE_TPCDS` in `tpcds_variables.sh`.
 for i in "${PWD}"/0*/; do
